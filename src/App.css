@@ -1,38 +1,68 @@
 .App {
   text-align: center;
+  padding: 0 15px;
+}
+.reporte {
+  margin-bottom: 20px;
+}
+.reporte_header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.reporte_imagenes {
+  display: grid;
+}
+.reporte_imagenes_diametros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.reporte_resultado {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  place-content: center;
+  gap: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.imprimir {
+  margin-bottom: 30px;
+}
+
+.imprimir button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  --color: #8fc866;
+  --hover: #8fc866;
+}
+.imprimir button:hover,
+.imprimir button:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+}
+
+.imprimir button {
+  color: var(--color);
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+.imprimir button:hover,
+button:focus {
+  border-color: var(--hover);
+  color: #73bb3f;
+}
+
+.reporte_graficas {
+}
+@media print {
+  .imprimir {
+    display: none;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .reporte_graficas {
+    page-break-before: always;
   }
 }
